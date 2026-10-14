@@ -11,16 +11,16 @@ public class PolygonRasterizer {
     }
 
     public void rasterize(Polygon polygon) {
-        // TODO: kontrola, jestli je min počet vrcholů
+        if (polygon.getSize()<2) return;
 
         for(int i = 0; i < polygon.getSize(); i++) {
             int indexA = i;
             // Pozor, abych nesahal mimo seznam a zráoveˇmn chci spojit poslední point s nultým
-            int indexB = i + 1;
+            int indexB = (i + 1) % polygon.getSize();
             Point2D a = polygon.getPoint(indexA);
             Point2D b = polygon.getPoint(indexB);
 
-            // TODO: rasterizovat úsečku od a do b
+            lineRasterizer.rasterize(a.getX(), a.getY(), b.getX(), b.getY());
         }
     }
 }
