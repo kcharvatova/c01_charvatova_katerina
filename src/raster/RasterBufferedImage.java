@@ -6,18 +6,17 @@ import java.awt.image.BufferedImage;
 public class RasterBufferedImage implements Raster {
     private final BufferedImage image;
 
-    public RasterBufferedImage(int width,  int height) {
+    public RasterBufferedImage(int width, int height) {
         image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
     }
 
     @Override
     public void setPixel(int x, int y, int color) {
+        //osetreni sahani mimo platno, aby program nevyhazoval chyby, bod 0, 0 lezi v levem rohu, x roste doprava a y roste doleva
         if (x < 0 || x >= getWidth() || y < 0 || y >= getHeight()) {
             return;
         }
-        else {
-            image.setRGB(x, y, color);
-        }
+        image.setRGB(x, y, color);
     }
 
     @Override

@@ -5,11 +5,12 @@ import java.awt.*;
 
 public class Window extends JFrame {
 
+    //platno
     private final Panel panel;
 
     public Window(int width, int height) {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setTitle("PGRF1 2024/2025");
+        setTitle("PGRF1 2025/2026");
         setVisible(true);
 
         panel = new Panel(width, height);

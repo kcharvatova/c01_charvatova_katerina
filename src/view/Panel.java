@@ -5,7 +5,6 @@ import raster.RasterBufferedImage;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 public class Panel extends JPanel {
 
@@ -19,11 +18,14 @@ public class Panel extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
+        //vycisti obrazovku
         super.paintComponent(g);
-        g.drawImage(((RasterBufferedImage)raster).getImage(), 0, 0, null);
+        //nakresli znovu
+        g.drawImage(((RasterBufferedImage) raster).getImage(), 0, 0, null);
     }
 
     public Raster getRaster() {
+
         return raster;
     }
 }

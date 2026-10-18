@@ -11,11 +11,13 @@ public class PolygonRasterizer {
     }
 
     public void rasterize(Polygon polygon) {
+        //podminka je uz pro dva vrcholy, usecka se pak vykresli dvakrat pres sebe, ale vadilo mi, ze dokud nezadam treti bod, nemam predstavu, jak bude polygon vypadat
         if (polygon.getSize()<2) return;
 
+        //cyklus pro vykresleni polygonu
         for(int i = 0; i < polygon.getSize(); i++) {
             int indexA = i;
-            // Pozor, abych nesahal mimo seznam a zráoveˇmn chci spojit poslední point s nultým
+            //pokud je to posledni bod, indexB bude 0 a posledni vrchol se propoji s bodem prvnim, zajistuje uzavrenost polygonu
             int indexB = (i + 1) % polygon.getSize();
             Point2D a = polygon.getPoint(indexA);
             Point2D b = polygon.getPoint(indexB);
